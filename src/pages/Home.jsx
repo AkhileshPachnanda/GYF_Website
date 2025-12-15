@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative pt-32 pb-32 overflow-hidden">
+            <section className="relative pt-32 pb-32 overflow-hidden min-h-[90vh] flex items-center">
                 {/* Floating Elements */}
 
                 {/* Top Right Ribbon */}
@@ -32,10 +32,10 @@ export default function Home() {
                         </div>
 
                         <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-black leading-[0.9] mb-8 text-black">
-                            We're changing how the world tries on  <span className="underline decoration-wavy decoration-brand-blue underline-offset-8">clothes. </span>
+                            We're changing how the world tries on <span className="underline decoration-wavy decoration-brand-blue underline-offset-8">clothes.</span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-gray-800 mb-10 max-w-xl font-medium">
+                        <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-xl font-medium">
                             The API layer for bold fashion brands. Visual styling, fit recommendations, and skin tone analysis that actually works.
                         </p>
 
@@ -72,7 +72,7 @@ export default function Home() {
                 <div className="flex gap-16 animate-marquee whitespace-nowrap">
                     {/* Repeating Brand Names */}
                     {[...Array(10)].map((_, i) => (
-                        <span className="text-2xl font-black font-serif italic text-black uppercase">
+                        <span key={i} className="text-2xl font-black font-serif italic text-black uppercase">
                             LOREM • IPSUM • DOLOR • SIT • AMET
                         </span>
                     ))}
@@ -137,7 +137,7 @@ export default function Home() {
                             <p className="text-xl text-brand-cream/90 mb-12 max-w-2xl mx-auto font-medium">
                                 Join the waitlist for V2. It's gonna be huge.
                             </p>
-                            <button className="bg-white text-black text-xl font-bold px-12 py-5 rounded-xl border-2 border-black shadow-brutalist hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all transform hover:rotate-1">
+                            <button className="bg-white text-black text-xl font-bold px-12 py-5 rounded-xl border-2 border-black shadow-brutalist hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all">
                                 Get Started Now
                             </button>
                         </div>
