@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import "./index.css";
-
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Solutions from './pages/Solutions';
+import Docs from './pages/Docs';
+import About from './pages/About';
 
 function App() {
   return (
-    <h1 className="text-5xl font-bold text-center mt-20">
-      Tailwind Working
-    </h1>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Layout>
   );
 }
-export default App
+
+export default App;
