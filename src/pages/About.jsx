@@ -47,7 +47,7 @@ export default function About() {
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 className="text-4xl font-serif font-bold mb-6">Built by Engineers & Stylists</h2>
-                        
+
                         <ul className="space-y-4">
                             {[
                                 "Proprietary Computer Vision Models",
