@@ -13,6 +13,7 @@ export default function Navbar() {
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Solutions', path: '/solutions' },
+        { name: 'Blog', path: '/blog' },
         { name: 'Docs', path: '/docs' },
         { name: 'About', path: '/about' },
     ];
@@ -43,21 +44,24 @@ export default function Navbar() {
                 className="fixed w-full z-50 top-6 px-4 pointer-events-none hidden md:block"
             >
                 <div className="max-w-[850px] mx-auto pointer-events-auto">
-                    <div className="bg-white/90 backdrop-blur-md border border-black/10 shadow-lg rounded-full px-5 py-2 flex items-center justify-between">
+                    <div className="relative overflow-hidden bg-black/50 backdrop-blur-3xl border border-white/5 shadow-[0_8px_32px_rgba(139,92,246,0.15)] rounded-full px-6 py-3 flex items-center justify-between group">
+                        {/* Purple Tint Gradient */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(139,92,246,0.15),transparent_70%)] pointer-events-none" />
+
                         {/* Logo - Serif Text */}
-                        <Link to="/" className="text-2xl font-serif font-black italic tracking-tighter hover:scale-105 transition-transform">
+                        <Link to="/" className="relative z-10 text-2xl font-serif font-black italic tracking-tighter hover:scale-105 transition-transform text-white">
                             GYF.
                         </Link>
 
                         {/* Desktop Nav Links */}
-                        <ul className="flex items-center gap-6 font-medium text-sm">
+                        <ul className="flex items-center gap-6 font-medium text-sm relative z-10">
                             {navLinks.map((link) => (
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className={`transition-colors relative ${location.pathname === link.path
-                                            ? 'text-brand-blue font-bold'
-                                            : 'text-gray-600 hover:text-black'
+                                        className={`transition-all duration-300 relative ${location.pathname === link.path
+                                            ? 'text-white font-bold'
+                                            : 'text-gray-400 hover:text-white'
                                             }`}
                                     >
                                         {link.name}
@@ -129,7 +133,7 @@ export default function Navbar() {
                                 <Link
                                     to="/docs"
                                     onClick={() => setIsOpen(false)}
-                                    className="bg-brand-green text-black px-8 py-3 rounded-full font-bold border-2 border-black shadow-[4px_4px_0px_0px_#000]"
+                                    className="bg-brand-blue text-white px-8 py-3 rounded-full font-bold border-2 border-black shadow-[4px_4px_0px_0px_#000]"
                                 >
                                     Get Started
                                 </Link>

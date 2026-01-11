@@ -15,14 +15,14 @@ export default function DemoWidget() {
     const steps = [
         { text: "Upload Image", icon: Scan, color: "text-gray-400" },
         { text: "Scanning...", icon: Loader2, color: "text-brand-blue animate-spin" },
-        { text: "Analyzing Fit", icon: Shirt, color: "text-brand-green" },
-        { text: "Match Found!", icon: CheckCircle, color: "text-brand-green" },
+        { text: "Analyzing Fit", icon: Shirt, color: "text-brand-blue" },
+        { text: "Match Found!", icon: CheckCircle, color: "text-brand-blue" },
     ];
 
     return (
         <div className="bg-white border-2 border-black rounded-3xl p-6 w-full max-w-sm mx-auto shadow-brutalist-lg relative overflow-hidden">
             {/* Decorative Badge */}
-            <div className="absolute top-4 right-4 bg-brand-green border border-black px-2 py-1 text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <div className="absolute top-4 right-4 bg-brand-blue border border-black px-2 py-1 text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 Live
             </div>
 
@@ -45,7 +45,7 @@ export default function DemoWidget() {
                                     return <IconComponent size={44} className={steps[step].color} />;
                                 })()}
                             </div>
-                            <p className="text-black font-bold text-xl">{steps[step].text}</p>
+                            <p className="text-color-brand-cream font-bold text-xl">{steps[step].text}</p>
                             {step === 3 && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
@@ -60,7 +60,7 @@ export default function DemoWidget() {
 
                     {step === 1 && (
                         <motion.div
-                            className="absolute top-0 left-0 w-full h-1 bg-brand-green border-b border-black"
+                            className="absolute top-0 left-0 w-full h-1 bg-brand-blue border-b border-black"
                             animate={{ top: ["0%", "100%", "0%"] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
@@ -79,9 +79,9 @@ export default function DemoWidget() {
                     <div className="flex gap-1.5 mb-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
                         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-gray-500"></div>
                     </div>
-                    <p className="font-mono text-xs text-brand-green">{`> Get Your Fit Today.`}</p>
+                    <p className="font-mono text-xs text-brand-blue">{`> Get Your Fit Today.`}</p>
                     <p className="font-mono text-xs text-white">{`> 200 OK (${step * 150}ms)`}</p>
                 </div>
             </div>
