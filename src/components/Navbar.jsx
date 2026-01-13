@@ -14,7 +14,6 @@ export default function Navbar() {
         { name: 'Home', path: '/' },
         { name: 'Solutions', path: '/solutions' },
         { name: 'Blog', path: '/blog' },
-        { name: 'Docs', path: '/docs' },
         { name: 'About', path: '/about' },
     ];
 
@@ -77,9 +76,9 @@ export default function Navbar() {
                         </ul>
 
                         {/* CTA */}
-                        <Link to="/docs" className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full font-bold text-xs hover:bg-brand-blue transition-colors">
+                        <a href="https://demo.getyourfit.tech" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full font-bold text-xs hover:bg-brand-blue transition-colors">
                             Get API <ArrowRight size={14} />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </motion.nav>
@@ -130,13 +129,15 @@ export default function Navbar() {
                                 </li>
                             ))}
                             <li className="pt-8">
-                                <Link
-                                    to="/docs"
+                                <a
+                                    href="https://demo.getyourfit.tech"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     onClick={() => setIsOpen(false)}
                                     className="bg-brand-blue text-white px-8 py-3 rounded-full font-bold border-2 border-black shadow-[4px_4px_0px_0px_#000]"
                                 >
-                                    Get Started
-                                </Link>
+                                    Get API
+                                </a>
                             </li>
                         </ul>
                     </motion.div>

@@ -6,17 +6,17 @@ export default function Solutions() {
         {
             icon: Shirt,
             title: "Virtual Styling Engine",
-            description: "Our core styling engine uses graph neural networks to understand fashion compatibility.",
+            description: "Our core styling engine is being developed using graph neural networks to understand fashion compatibility. Coming in beta.",
         },
         {
             icon: ScanFace,
             title: "Skin Tone Analysis",
-            description: "Proprietary computer vision algorithms detector skin undertones in varying lighting conditions.",
+            description: "Computer vision algorithms to detect skin undertones in varying lighting conditions. Currently in development.",
         },
         {
             icon: BarChart3,
             title: "Fit Intelligence",
-            description: "Map garment dimensions to user body measurements with 96% accuracy.",
+            description: "We're building ML models to map garment dimensions to user body measurements for accurate fit predictions.",
         },
         {
             icon: Layers,
@@ -26,12 +26,12 @@ export default function Solutions() {
         {
             icon: Wand2,
             title: "Outfit Generation",
-            description: "Create complete looks for any occasion automatically.",
+            description: "Automatically create complete looks for any occasion. In active development.",
         },
         {
             icon: Smartphone,
             title: "Mobile SDK",
-            description: "Drop-in iOS and Android components for AR try-on experiences.",
+            description: "Drop-in iOS and Android components for AR try-on experiences. Planned for future release.",
         }
     ];
 
@@ -42,7 +42,7 @@ export default function Solutions() {
                     Our <span className="underline decoration-wavy decoration-brand-blue underline-offset-8 decoration-4">Technology</span>
                 </h1>
                 <p className="text-xl text-gray-400">
-                    A comprehensive suite of AI tools designed to modernize the fashion retail stack.
+                    A comprehensive suite of AI tools in development to modernize the fashion retail stack. Join our beta to help shape the future.
                 </p>
             </div>
 

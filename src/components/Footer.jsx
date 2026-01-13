@@ -1,7 +1,17 @@
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Github, Twitter, Linkedin, Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import WaitlistForm from './WaitlistForm';
 
 export default function Footer() {
+    const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+    const socialLinks = [
+        { Icon: Linkedin, href: 'https://www.linkedin.com/company/get-your-fit-g-y-f/', label: 'LinkedIn' },
+        { Icon: Instagram, href: 'https://www.instagram.com/gyf.ltd?igsh=MThzeTMzcmo2ZWEzNg==', label: 'Instagram' },
+        { Icon: Mail, href: 'mailto:hello@getyourfit.tech', label: 'Email' },
+    ];
+
     return (
         <footer className="bg-black border-t border-white/10 pt-20 pb-10">
             <div className="max-w-[1100px] mx-auto px-4">
@@ -9,11 +19,11 @@ export default function Footer() {
                     <div className="col-span-1 md:col-span-1">
                         <h2 className="text-2xl font-serif font-black italic text-white mb-4 tracking-tighter">GYF.</h2>
                         <p className="text-gray-400 text-sm mb-6 max-w-xs leading-relaxed">
-                            The API layer for bold fashion brands. Visual styling, fit recommendations, and skin tone analysis that actually works.
+                            Building the API layer for fashion brands. Join our beta program to shape the future of AI-powered styling and fit recommendations.
                         </p>
                         <div className="flex space-x-3">
-                            {[Twitter, Github, Linkedin].map((Icon, i) => (
-                                <a key={i} href="#" className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors text-gray-400">
+                            {socialLinks.map(({ Icon, href, label }) => (
+                                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors text-gray-400">
                                     <Icon size={16} />
                                 </a>
                             ))}
@@ -21,31 +31,48 @@ export default function Footer() {
                     </div>
 
                     {[
-                        { title: "Solutions", links: ["Virtual Styling", "Fit Recommendations", "Skin Tone Analysis", "API Integration"] },
-                        { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] }
+                        {
+                            title: "Solutions", links: [
+                                { name: "Virtual Styling", path: "#" },
+                                { name: "Fit Recommendations", path: "#" },
+                                { name: "Skin Tone Analysis", path: "#" },
+                                { name: "API Integration", path: "#" }
+                            ]
+                        },
+                        {
+                            title: "Company", links: [
+                                { name: "Home", path: "/" },
+                                { name: "Solutions", path: "/solutions" },
+                                { name: "Blog", path: "/blog" },
+                                { name: "About", path: "/about" }
+                            ]
+                        }
                     ].map((col, idx) => (
                         <div key={idx}>
                             <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">{col.title}</h3>
                             <ul className="space-y-2 text-sm text-gray-400">
                                 {col.links.map((link) => (
-                                    <li key={link}><Link to="#" className="hover:text-brand-blue transition-colors">{link}</Link></li>
+                                    <li key={link.name}>
+                                        <Link to={link.path} className="hover:text-brand-blue transition-colors">
+                                            {link.name}
+                                        </Link>
+                                    </li>
                                 ))}
                             </ul>
                         </div>
                     ))}
 
                     <div>
-                        <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">Stay Updated</h3>
-                        <form className="flex flex-col gap-2">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-blue text-white transition-colors"
-                            />
-                            <button className="bg-brand-blue text-white font-bold py-2.5 rounded-lg hover:bg-brand-blue/90 transition-colors text-sm shadow-md">
-                                Subscribe
-                            </button>
-                        </form>
+                        <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">Join Beta</h3>
+                        <p className="text-gray-400 text-sm mb-4">
+                            Be the first to know when we launch. Early access perks included.
+                        </p>
+                        <button
+                            onClick={() => setIsWaitlistOpen(true)}
+                            className="w-full bg-brand-blue text-white font-bold py-2.5 rounded-lg hover:bg-brand-blue/90 transition-colors text-sm shadow-md"
+                        >
+                            Join Waitlist
+                        </button>
                     </div>
                 </div>
 
@@ -57,6 +84,9 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+            {/* Waitlist Form Modal */}
+            <WaitlistForm isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
         </footer>
     );
 }

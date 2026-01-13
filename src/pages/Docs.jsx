@@ -48,7 +48,7 @@ console.log(result.recommendations);
                         <span className="underline decoration-wavy decoration-brand-blue underline-offset-8 decoration-4">Quick Start</span>
                     </h1>
                     <p className="text-xl text-gray-400 mb-8">
-                        Get up and running with the GYF API in less than 5 minutes.
+                        Get started with the GYF API beta. Early access for developers building the future of fashion tech.
                     </p>
 
                     <div className="space-y-8">

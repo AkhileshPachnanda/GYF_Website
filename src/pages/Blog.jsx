@@ -55,7 +55,7 @@ export default function Blog() {
                 {posts.length === 0 ? (
                     <div className="text-center py-20 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                         <p className="text-2xl font-serif italic text-gray-500">No posts found yet.</p>
-                        <p className="text-gray-600 mt-2">Head to Sanity Studio to publish your first post!</p>
+                        <p className="text-gray-600 mt-2">Coming Soon.</p>
                     </div>
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

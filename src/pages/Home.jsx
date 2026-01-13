@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import DemoWidget from '../components/DemoWidget';
 import FeatureCard from '../components/FeatureCard';
+import WaitlistForm from '../components/WaitlistForm';
 
 import { Squiggle, Star, Ribbon, Circle } from '../components/FloatingElements';
 import { Shirt, ScanFace, BarChart3, Zap } from 'lucide-react';
@@ -11,6 +12,7 @@ import { client } from '../lib/sanity';
 
 export default function Home() {
     const [heroData, setHeroData] = useState(null);
+    const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
     useEffect(() => {
         const query = `*[_type == "page" && slug.current == "home"][0]{
@@ -34,10 +36,10 @@ export default function Home() {
     }, []);
 
     // Defaults
-    const badge = heroData?.badge || "Powering 500+ Brands";
-    const heading = heroData?.heading || "We're changing how the world tries on";
-    const highlight = heroData?.highlightedWord || "clothes.";
-    const subheading = heroData?.subheading || "The API layer for bold fashion brands. Visual styling, fit recommendations, and skin tone analysis that actually works.";
+    const badge = heroData?.badge || "Beta • Early Access";
+    const heading = heroData?.heading || "We're building the future of";
+    const highlight = heroData?.highlightedWord || "fashion tech.";
+    const subheading = heroData?.subheading || "The API layer for bold fashion brands. Visual styling, fit recommendations, and skin tone analysis - coming soon. Join our beta program.";
     const cta1 = heroData?.primaryCta || "Start Building";
     const cta2 = heroData?.secondaryCta || "Book Demo";
 
@@ -69,17 +71,25 @@ export default function Home() {
                         </p>
 
                         <div className="flex flex-wrap gap-4">
-                            <Link to="/docs" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2 text-lg border border-brand-blue/50 group">
+                            <a
+                                href="https://demo.getyourfit.tech"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2 text-lg border border-brand-blue/50 group"
+                            >
                                 {cta1} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                            <Link to="/about" className="px-8 py-4 rounded-xl font-medium border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-lg text-white backdrop-blur-sm">
+                            </a>
+                            <button
+                                onClick={() => setIsWaitlistOpen(true)}
+                                className="px-8 py-4 rounded-xl font-medium border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-lg text-white backdrop-blur-sm"
+                            >
                                 {cta2}
-                            </Link>
+                            </button>
                         </div>
 
                         <div className="mt-10 flex gap-6 text-sm font-bold border-t border-black/10 pt-6 inline-flex">
-                            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-brand-blue rounded-full border border-black"></div> API Access</div>
-                            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-brand-blue rounded-full border border-black"></div> 14-Day Free Trial</div>
+                            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-brand-blue rounded-full border border-black"></div> Beta Access</div>
+                            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-brand-blue rounded-full border border-black"></div> Early Adopter Perks</div>
                         </div>
                     </motion.div>
 
@@ -96,13 +106,13 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Marquee Social Proof */}
+            {/* Marquee Beta Banner */}
             <section className="py-6 border-y-2 border-black bg-brand-blue overflow-hidden">
                 <div className="flex gap-16 animate-marquee whitespace-nowrap">
-                    {/* Repeating Brand Names */}
+                    {/* Beta messaging */}
                     {[...Array(10)].map((_, i) => (
                         <span key={i} className="text-2xl font-black font-serif italic text-black uppercase">
-                            LOREM • IPSUM • DOLOR • SIT • AMET
+                            BETA PROGRAM • EARLY ACCESS • JOIN THE FUTURE
                         </span>
                     ))}
                 </div>
@@ -161,18 +171,21 @@ export default function Home() {
 
                         <div className="relative z-10">
                             <h2 className="text-4xl md:text-6xl font-serif font-black mb-8 text-white italic">
-                                Ready to revolutionize?
+                                Be an early adopter
                             </h2>
                             <p className="text-xl text-brand-cream/90 mb-12 max-w-2xl mx-auto font-medium">
-                                Join the waitlist for V2. It's gonna be huge.
+                                Join our beta program and shape the future of fashion tech. Limited spots available.
                             </p>
-                            <button className="bg-white text-black text-xl font-medium px-12 py-5 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:translate-y-[-2px] transition-all">
-                                Get Started Now
+                            <button onClick={() => setIsWaitlistOpen(true)} className="bg-white text-black text-xl font-medium px-12 py-5 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:translate-y-[-2px] transition-all">
+                                Join Beta Waitlist
                             </button>
                         </div>
                     </div>
                 </div>
             </section>
+
+            {/* Waitlist Form Modal */}
+            <WaitlistForm isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
         </>
     );
 }
